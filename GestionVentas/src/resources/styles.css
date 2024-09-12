@@ -1,0 +1,20 @@
+.root {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #7853b0, #366db1); /* Fondo degradado */
+}
+
+/* Estilo para el contenedor de imagen y etiquetas */
+.hbox {
+    -fx-alignment: center-left; /* Alinear a la izquierda */
+    -fx-spacing: 20; /* Espacio entre la imagen y el contenedor de etiquetas */
+}
+
+/* Estilo para el logo */
+.image-view {
+    -fx-fit-width: 50; /* Ancho del logo */
+    -fx-preserve-ratio: true; /* Mantener la proporción del logo */
+}
+
+/* Estilo para las etiquetas y campos de texto */
+.vbox {
+    -fx-spacing: 10; /* Espacio entre las etiquetas y los campos de texto */
+}

@@ -5,13 +5,21 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 
 public class LoginController {
+    @FXML
+    private ImageView logoView;
+
     @FXML
     private TextField dniField;
 
     @FXML
     private PasswordField passwordField;
+
+    @FXML HBox logoLabelContainer;
 
     // Método que se ejecuta al hacer clic en el botón "Ingresar"
     @FXML
@@ -47,5 +55,11 @@ public class LoginController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void initialize(){
+        Image logo = new Image("/resources/files/logoblanco.png");
+        logoView.setImage(logo);
     }
 }

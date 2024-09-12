@@ -16,8 +16,10 @@ public class MainApp extends Application {
         // Crear la escena
         Scene scene = new Scene(root);
 
+        scene.getStylesheets().add(getClass().getResource("/resources/styles.css").toExternalForm());
+
         // Configurar la ventana
-        primaryStage.setTitle("Inicio de Sesión");
+        primaryStage.setTitle("Gestion de ventas");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
