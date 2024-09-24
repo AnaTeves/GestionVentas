@@ -24,14 +24,17 @@ public class LoginController {
     // Método para manejar el evento de presionar el botón de Ingresar
     @FXML
     protected void handleLogin(ActionEvent event) {
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+        String username = usernameField.getText().trim();
+        String password = passwordField.getText().trim();
+
+        System.out.println("Username: " + username);
+        System.out.println("Password: " + password);
 
         // Validación de usuario y contraseña
         if (isValidLogin(username, password)) {
             try {
                 // Cargar la vista de menú
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuView.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/MainView.fxml"));
                 Parent root = loader.load();
 
                 // Obtener el controlador del menú

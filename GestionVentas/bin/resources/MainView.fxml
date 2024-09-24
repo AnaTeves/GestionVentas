@@ -3,13 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ejemplo.MainController">
-    
-    <!-- Definir un fondo para la vista -->
-    <stylesheets>
-        <URL value="@styles.css"/>
-    </stylesheets>
-    
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
+
     <!-- Barra de menú en la parte superior -->
     <MenuBar>
         <Menu text="Archivo">
@@ -20,6 +15,10 @@
         <Menu text="Administración" fx:id="menuAdministracion">
             <MenuItem text="Usuarios" fx:id="menuItemUsuarios"/>
             <MenuItem text="Roles" fx:id="menuItemRoles"/>
+            <!-- Agregando las opciones de administrador, gerente y repositor aquí -->
+            <MenuItem text="Opción Admin" fx:id="adminOption"/>
+            <MenuItem text="Opción Gerente" fx:id="gerenteOption"/>
+            <MenuItem text="Opción Repositor" fx:id="repositorOption"/>
         </Menu>
         <Menu text="Reportes" fx:id="menuReportes">
             <MenuItem text="Ventas" fx:id="menuItemVentas"/>
