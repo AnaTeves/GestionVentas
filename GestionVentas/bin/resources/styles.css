@@ -10,7 +10,7 @@
 
 /* Estilo para el logo */
 .image-view {
-    -fx-fit-width: 50; /* Ancho del logo */
+    -fx-fit-width: 250; /* Ancho del logo */
     -fx-preserve-ratio: true; /* Mantener la proporción del logo */
 }
 

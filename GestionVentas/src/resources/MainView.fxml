@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ejemplo.MainController">
+    
+    <!-- Definir un fondo para la vista -->
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+    
+    <!-- Barra de menú en la parte superior -->
+    <MenuBar>
+        <Menu text="Archivo">
+            <MenuItem text="Abrir" fx:id="menuItemAbrir"/>
+            <MenuItem text="Guardar" fx:id="menuItemGuardar"/>
+            <MenuItem text="Salir" fx:id="menuItemSalir"/>
+        </Menu>
+        <Menu text="Administración" fx:id="menuAdministracion">
+            <MenuItem text="Usuarios" fx:id="menuItemUsuarios"/>
+            <MenuItem text="Roles" fx:id="menuItemRoles"/>
+        </Menu>
+        <Menu text="Reportes" fx:id="menuReportes">
+            <MenuItem text="Ventas" fx:id="menuItemVentas"/>
+            <MenuItem text="Inventario" fx:id="menuItemInventario"/>
+        </Menu>
+    </MenuBar>
+    
+    <!-- Espacio para el contenido del formulario u otros elementos -->
+    <Pane fx:id="contentPane" prefHeight="400" prefWidth="600">
+        <!-- Aquí se puede cargar otro FXML o mostrar contenido dinámico -->
+    </Pane>
+    
+</VBox>
