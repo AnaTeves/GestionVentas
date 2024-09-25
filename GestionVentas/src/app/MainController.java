@@ -8,22 +8,22 @@ public class MainController {
     @FXML
     private MenuItem adminOption;
     @FXML
-    private MenuItem gerenteOption;
+    private MenuItem vendedorOption;
     @FXML
     private MenuItem repositorOption;
 
     // Este método se llamará desde el LoginController para configurar el menú según el usuario
     public void setUserRole(String username) {
-        // Deshabilitar todas las opciones por defecto
+        // Deshabilita todas las opciones por defecto
         adminOption.setDisable(true);
-        gerenteOption.setDisable(true);
+        vendedorOption.setDisable(true);
         repositorOption.setDisable(true);
 
-        // Habilitar las opciones correspondientes según el rol del usuario
+        // Habilita las opciones correspondientes según el rol del usuario
         if (username.equals("admin")) {
             adminOption.setDisable(false);
         } else if (username.equals("gerente")) {
-            gerenteOption.setDisable(false);
+            vendedorOption.setDisable(false);
         } else if (username.equals("repositor")) {
             repositorOption.setDisable(false);
         }

@@ -44,9 +44,10 @@ public class LoginController {
                 menuController.setUserRole(username);
 
                 // Mostrar el menú
-                stage = (Stage) usernameField.getScene().getWindow();
-                Scene scene = new Scene(root);
+                stage = (Stage) usernameField.getScene().getWindow(); // Obtengo la ventana actual
+                Scene scene = new Scene(root); // Creo una nueva instancia con la escena que deseo mostrar
                 stage.setScene(scene);
+                stage.setFullScreen(true); // Defino que la ventana sea de pantalla completa
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -66,9 +67,9 @@ public class LoginController {
         // Simulación de validación de usuarios (admin, gerente, repositores)
         if (username.equals("admin") && password.equals("admin")) {
             return true;
-        } else if (username.equals("gerente") && password.equals("gerente123")) {
+        } else if (username.equals("vendedor") && password.equals("vendedor")) {
             return true;
-        } else if (username.equals("repositor") && password.equals("repositor123")) {
+        } else if (username.equals("repositor") && password.equals("repositor")) {
             return true;
         }
         return false;

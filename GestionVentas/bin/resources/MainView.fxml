@@ -3,26 +3,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController" stylesheets="@styles.css">
 
     <!-- Barra de menú en la parte superior -->
     <MenuBar>
-        <Menu text="Archivo">
+        <Menu text="Usuarios" fx:id="adminOption">
+            <MenuItem text="Dar de alta" fx:id="menuItemAlta"/>
+            <MenuItem text="Ver usuarios" fx:id="menuItemVer"/>
+        </Menu>
+        <Menu text="Productos" fx:id="repositorOption">
+            <MenuItem text="Ver productos" fx:id="verProductos"/>
+            <MenuItem text="Añadir" fx:id="menuItemAñadir"/>
+            <MenuItem text="Eliminar" fx:id="menuItemGuardar"/>
+        </Menu>
+        <Menu text="Clientes" fx:id="vendedorOption">
+            <MenuItem text="Agregar" fx:id="agregarClientes"/>
+            <MenuItem text="Ver clientes" fx:id="verClientes"/>
+        </Menu>
+        <Menu text="Ventas" fx:id="adminOption">
             <MenuItem text="Abrir" fx:id="menuItemAbrir"/>
             <MenuItem text="Guardar" fx:id="menuItemGuardar"/>
             <MenuItem text="Salir" fx:id="menuItemSalir"/>
         </Menu>
-        <Menu text="Administración" fx:id="menuAdministracion">
-            <MenuItem text="Usuarios" fx:id="menuItemUsuarios"/>
-            <MenuItem text="Roles" fx:id="menuItemRoles"/>
-            <!-- Agregando las opciones de administrador, gerente y repositor aquí -->
-            <MenuItem text="Opción Admin" fx:id="adminOption"/>
-            <MenuItem text="Opción Gerente" fx:id="gerenteOption"/>
-            <MenuItem text="Opción Repositor" fx:id="repositorOption"/>
-        </Menu>
-        <Menu text="Reportes" fx:id="menuReportes">
-            <MenuItem text="Ventas" fx:id="menuItemVentas"/>
-            <MenuItem text="Inventario" fx:id="menuItemInventario"/>
+        <Menu text="Reportes" fx:id="adminOption">
+            <MenuItem text="Ver" fx:id="menuItemAbrir"/>
+            <MenuItem text="Guardar" fx:id="menuItemGuardar"/>
+            <MenuItem text="Salir" fx:id="menuItemSalir"/>
         </Menu>
     </MenuBar>
     

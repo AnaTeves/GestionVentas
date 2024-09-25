@@ -1,4 +1,4 @@
-.root {
+.root, .Vbox{
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #7853b0, #366db1); /* Fondo degradado */
 }
 
