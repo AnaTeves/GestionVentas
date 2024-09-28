@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainController {
@@ -55,7 +54,7 @@ public class MainController {
     }
 
     @FXML
-    public void showVerUsuarios() {
-        setView("/path/to/VerUsuarios.fxml"); // Carga la vista de ver usuarios
+    public void verUsuarios() {
+        setView("/resources/UsersView.fxml"); // Carga la vista de ver usuarios
     }
 }
