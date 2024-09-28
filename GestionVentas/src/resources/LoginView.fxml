@@ -27,6 +27,5 @@
             <Button fx:id="btnLogin" onAction="#handleLogin" prefHeight="25.0" prefWidth="68.0" text="Ingresar" />
             <Button fx:id="btnCancel" onAction="#handleCancel" prefHeight="25.0" prefWidth="61.0" text="Cancelar" textAlignment="CENTER" />
         </HBox>
-        </VBox>
-
+    </VBox>
 </StackPane>

@@ -8,7 +8,7 @@
     <!-- Barra de menú en la parte superior -->
     <MenuBar>
         <Menu text="Usuarios" fx:id="adminOption">
-            <MenuItem text="Dar de alta" fx:id="menuItemAlta"/>
+            <MenuItem text="Dar de alta" fx:id="menuItemAlta" onAction="#altaUsuarios"/>
             <MenuItem text="Ver usuarios" fx:id="menuItemVer"/>
         </Menu>
         <Menu text="Productos" fx:id="repositorOption">
