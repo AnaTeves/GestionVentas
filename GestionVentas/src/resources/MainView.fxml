@@ -11,20 +11,16 @@
             <MenuItem text="Dar de alta" fx:id="menuItemAlta" onAction="#altaUsuarios"/>
             <MenuItem text="Ver usuarios" fx:id="menuItemVer" onAction="#verUsuarios"/>
         </Menu>
-        <Menu text="Inventario" fx:id="adminOption">
+        <Menu text="Inventario" fx:id="repositorOption">
             <MenuItem text="Control de stock" fx:id="stockProductos"/>
             <MenuItem text="Agregar productos" fx:id="añadirProducto"/>
             <MenuItem text="Eliminar productos" fx:id="eliminarProducto"/>
         </Menu>
-        <Menu text="Clientes" fx:id="adminOption">
+        <Menu text="Clientes" fx:id="vendedorOption">
             <MenuItem text="Agregar" fx:id="agregarClientes"/>
             <MenuItem text="Ver clientes" fx:id="verClientes"/>
         </Menu>
-        <Menu text="Ventas" fx:id="adminOption">
-            <MenuItem text="Ver ventas" fx:id="verVentas"/>
-            <MenuItem text="Guardar" fx:id="menuItemGuardar"/>
-            <MenuItem text="Salir" fx:id="menuItemSalir"/>
-        </Menu>
+        <Menu text="Ventas" fx:id="adminOption"></Menu>
         <Menu text="Reportes" fx:id="adminOption"></Menu>
     </MenuBar>
     
