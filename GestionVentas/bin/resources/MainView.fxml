@@ -6,20 +6,20 @@
 <VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController" stylesheets="@styles.css">
 
     <!-- Barra de menú en la parte superior -->
-    <MenuBar>
-        <Menu text="Usuarios" fx:id="adminOption">
+    <MenuBar fx:id="menuBar">
+        <Menu text="Usuarios" fx:id="usuariosMenu">
             <MenuItem text="Dar de alta" fx:id="menuItemAlta" onAction="#altaUsuarios"/>
             <MenuItem text="Ver usuarios" fx:id="menuItemVer" onAction="#verUsuarios"/>
         </Menu>
-        <Menu text="Inventario" fx:id="adminOption">
+        <Menu text="Inventario" fx:id="inventarioMenu"> 
             <MenuItem text="Gestion inventario" fx:id="menuInventario" onAction="#gestionInventario"/>
         </Menu>
-        <Menu text="Clientes" fx:id="vendedorOption">
+        <Menu text="Clientes" fx:id="clienteMenu"> 
             <MenuItem text="Agregar" fx:id="agregarClientes"/>
             <MenuItem text="Ver clientes" fx:id="verClientes"/>
         </Menu>
-        <Menu text="Ventas" fx:id="repositorOption"></Menu>
-        <Menu text="Reportes" fx:id="adminOption"></Menu>
+        <Menu text="Ventas" fx:id="ventasMenu"></Menu> 
+        <Menu text="Reportes" fx:id="reportesMenu"></Menu> 
     </MenuBar>
     
     <!-- Espacio para el contenido del formulario u otros elementos -->

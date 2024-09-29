@@ -3,37 +3,72 @@ package app;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MainController {
 
     @FXML
     private MenuItem adminOption;
     @FXML
-    private MenuItem vendedorOption;
+    private MenuItem reporteOption;
     @FXML
-    private MenuItem repositorOption;
+    private MenuItem clienteOption;
+    @FXML
+    private MenuItem ventasOption;
+    @FXML
+    private MenuItem inventarioOption;
     @FXML
     private Pane contentPane; // Pane donde voy a cargar las vistas
     @FXML
     private MenuItem menuItemAlta;
+    @FXML
+    private MenuBar menuBar;
+
+    @FXML
+    private Menu ventasMenu;
+    @FXML
+    private Menu reportesMenu;
+    @FXML
+    private Menu clienteMenu;
+    @FXML
+    private Menu usuariosMenu;
+    @FXML
+    private Menu inventarioMenu;
+
+    private Map<String, List<Menu>> accessMap = new HashMap<>();
+
+    public void initialize() {
+        // Oculta todos los menús al inicio
+        for (Menu menu : menuBar.getMenus()) {
+            menu.setVisible(false);
+        }
+
+        // Define qué menús puede ver cada rol
+        accessMap.put("admin", Arrays.asList(ventasMenu, reportesMenu, clienteMenu, usuariosMenu, inventarioMenu));
+        accessMap.put("gerente", Arrays.asList(ventasMenu, reportesMenu));
+        accessMap.put("empleado", Arrays.asList(inventarioMenu, clienteMenu, ventasMenu));
+    }
 
     // Este método se llamará desde el LoginController para configurar el menú según el usuario
     public void setUserRole(String username) {
-        // Deshabilita todas las opciones por defecto
-        adminOption.setDisable(true);
-        vendedorOption.setDisable(true);
-        repositorOption.setDisable(true);
-
-        // Habilita las opciones correspondientes según el rol del usuario
-        if (username.equals("admin")) {
-            adminOption.setDisable(false);
-        } else if (username.equals("gerente")) {
-            vendedorOption.setDisable(false);
-        } else if (username.equals("repositor")) {
-            repositorOption.setDisable(false);
+        List<Menu> allowedMenus = accessMap.get(username);
+        if (allowedMenus != null) {
+            // Itera sobre todos los menús y habilita solo los que el rol puede ver
+            for (Menu menu : menuBar.getMenus()) {
+                if (allowedMenus.contains(menu)) {
+                    menu.setVisible(true);
+                } else {
+                    menu.setVisible(false);
+                }
+            }
         }
     }
 

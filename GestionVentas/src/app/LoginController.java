@@ -27,9 +27,6 @@ public class LoginController {
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
 
-        System.out.println("Username: " + username);
-        System.out.println("Password: " + password);
-
         // Validación de usuario y contraseña
         if (isValidLogin(username, password)) {
             try {
@@ -67,9 +64,9 @@ public class LoginController {
         // Simulación de validación de usuarios (admin, gerente, repositores)
         if (username.equals("admin") && password.equals("admin")) {
             return true;
-        } else if (username.equals("vendedor") && password.equals("vendedor")) {
+        } else if (username.equals("gerente") && password.equals("gerente")) {
             return true;
-        } else if (username.equals("repositor") && password.equals("repositor")) {
+        } else if (username.equals("empleado") && password.equals("empleado")) {
             return true;
         }
         return false;
