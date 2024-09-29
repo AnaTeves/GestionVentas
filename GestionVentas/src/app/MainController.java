@@ -57,4 +57,9 @@ public class MainController {
     public void verUsuarios() {
         setView("/resources/UsersView.fxml"); // Carga la vista de ver usuarios
     }
+
+    @FXML
+    public void gestionInventario() {
+        setView("/resources/InventarioView.fxml"); // Carga la vista de ver inventario
+    }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- InventoryView.fxml -->
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@styles.css">
+    <TableView fx:id="tablaProductos">
+        <columns>
+            <TableColumn fx:id="nombreCol" text="Nombre" />
+            <TableColumn fx:id="precioCol" text="Precio" />
+            <TableColumn fx:id="stockCol" text="Stock" />
+        </columns>
+    </TableView>
+
+    <GridPane>
+        <Label text="Nombre:" />
+        <TextField fx:id="nombreInput" />
+        <Label text="Precio:" />
+        <TextField fx:id="precioInput" />
+        <Label text="Stock:" />
+        <TextField fx:id="stockInput" />
+        <Button fx:id="btnAgregar" text="Agregar Producto" />
+    </GridPane>
+</VBox>
