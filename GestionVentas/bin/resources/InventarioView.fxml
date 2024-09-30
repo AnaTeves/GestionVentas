@@ -17,13 +17,5 @@
         </columns>
     </TableView>
 
-    <GridPane>
-        <Label text="Nombre:" />
-        <TextField fx:id="nombreInput" />
-        <Label text="Precio:" />
-        <TextField fx:id="precioInput" />
-        <Label text="Stock:" />
-        <TextField fx:id="stockInput" />
-        <Button fx:id="btnAgregar" text="Agregar Producto" />
-    </GridPane>
+    <Button fx:id="btnAgregar" text="Agregar Producto" />
 </VBox>

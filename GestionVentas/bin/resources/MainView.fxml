@@ -15,8 +15,8 @@
             <MenuItem text="Gestion inventario" fx:id="menuInventario" onAction="#gestionInventario"/>
         </Menu>
         <Menu text="Clientes" fx:id="clienteMenu"> 
-            <MenuItem text="Agregar" fx:id="agregarClientes"/>
-            <MenuItem text="Ver clientes" fx:id="verClientes"/>
+            <MenuItem text="Agregar" fx:id="agregarClientes" onAction="#agregarClientes"/>
+            <MenuItem text="Ver clientes" fx:id="verClientes" onAction="#buscarCliente"/>
         </Menu>
         <Menu text="Ventas" fx:id="ventasMenu"></Menu> 
         <Menu text="Reportes" fx:id="reportesMenu"></Menu> 

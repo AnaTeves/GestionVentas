@@ -14,7 +14,6 @@ public class MainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/resources/LoginView.fxml"));
 
         DatabaseConnection db = new DatabaseConnection();
-        db.getConnection();
 
         // Crear la escena
         Scene scene = new Scene(root);

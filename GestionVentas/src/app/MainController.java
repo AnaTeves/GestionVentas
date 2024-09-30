@@ -97,4 +97,14 @@ public class MainController {
     public void gestionInventario() {
         setView("/resources/InventarioView.fxml"); // Carga la vista de ver inventario
     }
+
+    @FXML
+    public void buscarCliente() {
+        setView("/resources/ClienteView.fxml");
+    }
+
+    @FXML
+    public void agregarClientes() {
+        setView("/resources/AddClient.fxml");
+    }
 }
