@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.scene.control.MenuItem;
 
@@ -35,19 +36,25 @@ public class UsersController {
     }
 
     private int obtenerIdPerfil(String perfilDescripcion) {
-        // En un escenario real, deberías consultar la base de datos para el ID del perfil.
-        // Aquí hay una versión simplificada utilizando valores codificados.
-        switch (perfilDescripcion) {
-            case "Administrador":
-                return 1; // Suponiendo que el ID para "Administrador" es 1
-            case "Vendedor":
-                return 2; // Suponiendo que el ID para "Vendedor" es 2
-            case "Repositor":
-                return 3; // Suponiendo que el ID para "Repositor" es 3
-            default:
+        String sql = "SELECT id_perfil FROM PERFIL WHERE descripcion = ?";
+        
+        try (Connection connection = DatabaseConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, perfilDescripcion);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            if (resultSet.next()) {
+                return resultSet.getInt("id_perfil");
+            } else {
+                mostrarAlerta("Error", "Perfil no encontrado.");
                 return -1; // Perfil inválido
+            }
+        } catch (SQLException e) {
+            mostrarAlerta("Error", "No se pudo obtener el perfil: " + e.getMessage());
+            return -1; // En caso de error en la consulta
         }
     }
+
 
     @FXML
     public void agregarUsuario() {
@@ -73,7 +80,7 @@ public class UsersController {
     }
 
     private void insertarUsuarioEnBaseDeDatos(String nomYape, String dni, String email, int idPerfil) throws SQLException {
-        String sql = "INSERT INTO Usuario (nomYape, dni, email, id_perfil) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuario (nombreyape, DNI, email, id_perfil) VALUES (?, ?, ?, ?)";
 
         try (Connection connection = DatabaseConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
