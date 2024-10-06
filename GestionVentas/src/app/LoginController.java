@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.io.IOException;
+import javafx.scene.layout.StackPane;
 
 public class LoginController {
 
@@ -20,6 +21,7 @@ public class LoginController {
     private PasswordField passwordField;
 
     private Stage stage;
+    private StackPane stackPane;
 
     // Método para manejar el evento de presionar el botón de Ingresar
     @FXML

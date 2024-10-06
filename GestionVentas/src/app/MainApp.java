@@ -7,13 +7,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Cargar el archivo FXML
         Parent root = FXMLLoader.load(getClass().getResource("/resources/LoginView.fxml"));
 
         DatabaseConnection db = new DatabaseConnection();
+        db.getConnection();
 
         // Crear la escena
         Scene scene = new Scene(root);
