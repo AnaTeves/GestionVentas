@@ -25,7 +25,7 @@ public class Usuario {
         return email;
     }  
 
-    public int getPerfil() {
+    public int getIdPerfil() {
         return idPerfil;
     }
 }

@@ -1,8 +1,11 @@
 package app;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.sql.Connection;
@@ -10,6 +13,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import java.sql.Statement;
 
 public class UsersController {
     @FXML
@@ -22,7 +28,62 @@ public class UsersController {
     private MenuButton perfilMenuButton;
 
     @FXML
+    private TableView<Usuario> tableView;
+
+    @FXML
+    private TableColumn<Usuario, String> nombreCol;
+
+    @FXML
+    private TableColumn<Usuario, String> dniCol;
+
+    @FXML
+    private TableColumn<Usuario, String> emailCol;
+
+    @FXML
+    private TableColumn<Usuario, String> tipoUsuarioCol;
+
+    private ObservableList<Usuario> usuarios = FXCollections.observableArrayList();
+
+    @FXML
+    public void inicio() {
+        nombreCol.setCellValueFactory(new PropertyValueFactory<>("nomYape"));
+        dniCol.setCellValueFactory(new PropertyValueFactory<>("dni"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tipoUsuarioCol.setCellValueFactory(new PropertyValueFactory<>("idPerfil"));
+
+        // Cargar datos desde la base de datos
+        cargarDatosDesdeBD();
+        tableView.setItems(usuarios);
+    }
+
+    private void cargarDatosDesdeBD() {
+        Connection conn = DatabaseConnection.getConnection(); 
+        String query = "SELECT nombreyape, DNI, email, id_perfil FROM USUARIO";
+
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                String nombreYApellido = rs.getString("nombreyape");
+                String documento = rs.getString("DNI");
+                String email = rs.getString("email");
+                int tipoUsuario = rs.getInt("id_perfil");
+
+                System.out.println("Nombre: " + nombreYApellido + ", DNI: " + documento + ", Email: " + email + ", Tipo Usuario: " + tipoUsuario);
+
+                Usuario usuario = new Usuario(nombreYApellido, documento, email, tipoUsuario);
+                usuarios.add(usuario);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void initialize() {
+        inicio();
         perfilSelection(); // Llama a perfilSelection en la inicialización
     }
 
@@ -54,7 +115,6 @@ public class UsersController {
             return -1; // En caso de error en la consulta
         }
     }
-
 
     @FXML
     public void agregarUsuario() {
