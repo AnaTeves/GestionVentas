@@ -58,8 +58,8 @@
             </Label>
             <!-- Contenedor para buscador -->
             <HBox>
-                <TextField fx:id="buscarCliente" promptText="Nro documento" />
-                <Button fx:id="btnBuscarCliente" text="Buscar"/>
+                <TextField fx:id="buscarUser" promptText="Nro documento" />
+                <Button fx:id="btnBuscarUser" text="Buscar" onAction="#buscarUsuario"/>
             </HBox> 
             <padding>
                 <Insets top="40.0" right="40.0" bottom="40.0" left="40.0" />

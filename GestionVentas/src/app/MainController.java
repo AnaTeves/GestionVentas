@@ -85,26 +85,27 @@ public class MainController {
     // Vincula cada MenuItem a una vista específica
     @FXML
     public void altaUsuarios() {
-        setView("/resources/AddUser.fxml"); // Carga la vista de dar de alta usuarios
-    }
-
-    @FXML
-    public void verUsuarios() {
-        setView("/resources/UsersView.fxml"); // Carga la vista de ver usuarios
+        setView("/resources/AddUser.fxml"); // Carga la vista del formulario para dar de alta un usuario
     }
 
     @FXML
     public void gestionInventario() {
-        setView("/resources/InventarioView.fxml"); // Carga la vista de ver inventario
-    }
-
-    @FXML
-    public void buscarCliente() {
-        setView("/resources/ClienteView.fxml");
+        setView("/resources/InventarioView.fxml"); // Carga la vista de gestion de inventario
     }
 
     @FXML
     public void agregarClientes() {
-        setView("/resources/AddClient.fxml");
+        setView("/resources/AddClient.fxml"); // Carga la vista de gestion de clientes
     }
+
+    @FXML
+    public void registroVenta() {
+        setView("/resources/RegistroVenta.fxml"); // Carga la vista del formulario para registrar una venta
+    }
+
+    @FXML
+    public void verVenta() {
+        setView("/resources/VerVentas.fxml"); // Carga la vista para visualizar las ventas
+    }
+
 }

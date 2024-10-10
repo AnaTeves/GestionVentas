@@ -26,6 +26,8 @@ public class UsersController {
     private TextField emailField;
     @FXML
     private MenuButton perfilMenuButton;
+    @FXML
+    private TextField buscarUser;
 
     @FXML
     private TableView<Usuario> tableView;
@@ -43,6 +45,48 @@ public class UsersController {
     private TableColumn<Usuario, String> tipoUsuarioCol;
 
     private ObservableList<Usuario> usuarios = FXCollections.observableArrayList();
+
+    @FXML
+    public void buscarUsuario() {
+        String dni = buscarUser.getText();
+
+        if (dni.isEmpty()) {
+            // Si el campo está vacío, tal vez quieras mostrar un mensaje de error
+            System.out.println("Ingrese un DNI para buscar");
+            return;
+        }
+        
+        // Realiza la consulta a la base de datos para buscar el usuario
+        String query = "SELECT * FROM USUARIO WHERE DNI = ?";
+        
+        try (Connection conn = DatabaseConnection.getConnection(); 
+            PreparedStatement stmt = conn.prepareStatement(query)) {
+            
+            stmt.setString(1, dni);
+            ResultSet rs = stmt.executeQuery();
+            
+            // Limpia la tabla antes de mostrar los resultados
+            tableView.getItems().clear();
+            
+            if (rs.next()) {
+
+                String nombreYApellido = rs.getString("nombreyape");
+                String documento = rs.getString("DNI");
+                String email = rs.getString("email");
+                int tipoUsuario = rs.getInt("id_perfil");
+
+                Usuario usuario = new Usuario(nombreYApellido, documento, email, tipoUsuario);        
+                // Añadir el usuario a la tabla
+                tableView.getItems().add(usuario);
+            } else {
+                System.out.println("No se encontró el usuario con el DNI proporcionado");
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @FXML
     public void inicio() {

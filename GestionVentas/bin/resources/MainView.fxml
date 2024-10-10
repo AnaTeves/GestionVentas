@@ -8,17 +8,18 @@
     <!-- Barra de menú en la parte superior -->
     <MenuBar fx:id="menuBar">
         <Menu text="Usuarios" fx:id="usuariosMenu">
-            <MenuItem text="Dar de alta" fx:id="menuItemAlta" onAction="#altaUsuarios"/>
-            <MenuItem text="Ver usuarios" fx:id="menuItemVer" onAction="#verUsuarios"/>
+            <MenuItem text="Gestion usuarios" fx:id="menuItemAlta" onAction="#altaUsuarios"/>
         </Menu>
         <Menu text="Inventario" fx:id="inventarioMenu"> 
             <MenuItem text="Gestion inventario" fx:id="menuInventario" onAction="#gestionInventario"/>
         </Menu>
         <Menu text="Clientes" fx:id="clienteMenu"> 
-            <MenuItem text="Agregar" fx:id="agregarClientes" onAction="#agregarClientes"/>
-            <MenuItem text="Ver clientes" fx:id="verClientes" onAction="#buscarCliente"/>
+            <MenuItem text="Gestion clientes" fx:id="agregarClientes" onAction="#agregarClientes"/>
         </Menu>
-        <Menu text="Ventas" fx:id="ventasMenu"></Menu> 
+        <Menu text="Ventas" fx:id="ventasMenu">
+            <MenuItem text="Registrar venta" fx:id="regVenta" onAction="#registroVenta"/>
+            <MenuItem text="Ver ventas" fx:id="verVenta" onAction="#verVenta"/>
+        </Menu> 
         <Menu text="Reportes" fx:id="reportesMenu"></Menu> 
     </MenuBar>
     

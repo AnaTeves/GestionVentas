@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane prefHeight="264.0" prefWidth="551.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.LoginController">
+<StackPane prefHeight="450.0" prefWidth="400.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.LoginController">
     <VBox fx:id="logoLabelContainer" alignment="CENTER" spacing="20.0" styleClass="vbox" StackPane.alignment="CENTER">
         <!-- Imagen -->
         <ImageView fx:id="logoView" fitHeight="116.0" fitWidth="339.0" styleClass="image-view">
