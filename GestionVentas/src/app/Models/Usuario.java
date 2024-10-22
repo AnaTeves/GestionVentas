@@ -1,4 +1,4 @@
-package app;
+package app.Models;
 
 public class Usuario {
     private String nomYape;

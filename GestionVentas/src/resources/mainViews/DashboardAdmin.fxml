@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<!-- Vista del administrador al ingresar -->
+<StackPane alignment="CENTER" maxHeight="800" maxWidth="1000" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controllers.AdminController">
+    <BorderPane fx:id="mainBorderPane" StackPane.alignment="CENTER">
+        <!-- Contenedor superior -->
+        <top>
+            <HBox spacing="80" alignment="CENTER">
+                <Label text="Administrador">
+                <padding>
+                    <Insets left="10.0" right="10.0" top="10.0" bottom="10.0"/>
+                </padding></Label>
+                <Button text="Logout" />
+            </HBox>
+        </top>
+        <!-- Contenedor izquierdo -->
+        <left>
+            <VBox alignment="CENTER" spacing="70">
+                <Button text="Usuarios" onAction="#handleUsers" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0;"/>
+                <Label text="Inventario" textAlignment="CENTER">
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding></Label>
+                <Label text="Clientes" textAlignment="CENTER">
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding></Label>
+                <Label text="Reportes" textAlignment="CENTER">
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding>
+                </Label>
+            </VBox>
+        </left>
+        <!-- Contenedor central -->
+        <center>
+            <StackPane fx:id="mainContent" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #7853b0, #366db1);">
+                <GridPane fx:id="gridPane" alignment="CENTER"> <!-- Espacio horizontal y vertical entre celdas -->
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+    
+                    <rowConstraints>
+                        <RowConstraints percentHeight="50" />
+                        <RowConstraints percentHeight="50" />
+                    </rowConstraints>
+
+                    <Label text="Label 1" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label text="Label 2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label text="Label 3" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label text="Label 4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                </GridPane>
+            </StackPane>
+        </center>
+    </BorderPane>
+</StackPane>
