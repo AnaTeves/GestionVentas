@@ -13,7 +13,7 @@
 <?import javafx.scene.control.TableView?>
 <!-- Vista gestion de usuarios - Agregar, ver, buscar -->
 <StackPane fx:id="mainContent" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controllers.UserController">
-    <HBox alignment="CENTER" spacing="50.0" HBox.hgrow="ALWAYS"> 
+    <HBox alignment="CENTER" spacing="50.0" HBox.hgrow="ALWAYS" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #7853b0, #366db1);"> 
         <VBox alignment="CENTER_LEFT" spacing="20.0" HBox.hgrow="ALWAYS" styleClass="vbox">
             <Label text="Buscar usuario" textAlignment="CENTER" textFill="WHITE">
                 <padding>

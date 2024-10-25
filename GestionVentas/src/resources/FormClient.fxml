@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <StackPane fx:id="mainContent" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controllers.FormUserController">
-    <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS" styleClass="vbox" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #7853b0, #366db1);">
+    <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS" styleClass="vbox">
             <padding>
                 <Insets top="40.0" right="70.0" bottom="40.0" left="100.0" />
             </padding>

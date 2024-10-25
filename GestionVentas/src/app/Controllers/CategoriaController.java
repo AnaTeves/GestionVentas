@@ -1,5 +1,5 @@
 package app.Controllers;
-import app.BDD.UserService;
+import app.BDD.CategoriaService;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,52 +15,48 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import app.Models.Categoria;
 import app.Models.Usuario;
+
 import java.io.IOException;
 
-public class UserController {
+public class CategoriaController {
+    @FXML
+    private TableView<Categoria> tableView;
 
     @FXML
-    private TableView<Usuario> tableView;
+    private TableColumn<Categoria, Integer> idCol;
 
     @FXML
-    private TableColumn<Usuario, String> nombreCol;
+    private TableColumn<Categoria, String> nombreCol;
 
     @FXML
-    private TableColumn<Usuario, String> dniCol;
+    private TableColumn<Categoria, String> descCol;
 
     @FXML
-    private TableColumn<Usuario, String> emailCol;
+    private TableColumn<Categoria, String> estadoCol;
 
-    @FXML
-    private TableColumn<Usuario, String> tipoUsuarioCol;
-
-    private ObservableList<Usuario> usuarios = FXCollections.observableArrayList();
+    private ObservableList<Categoria> categorias = FXCollections.observableArrayList();
 
     @FXML
     private StackPane mainContent;
 
-    @FXML
-    private TextField buscarUser;
-
-    // Creamos una instancia de user service
-    private UserService users = new UserService();
+    private CategoriaService categoria = new CategoriaService();
 
     @FXML
     public void initialize() {
-        nombreCol.setCellValueFactory(new PropertyValueFactory<>("nomYape"));
-        dniCol.setCellValueFactory(new PropertyValueFactory<>("dni"));
-        emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-        tipoUsuarioCol.setCellValueFactory(new PropertyValueFactory<>("idPerfil"));
+        idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nombreCol.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        descCol.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        estadoCol.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
         // Cargar datos desde la base de datos
         cargarDatosDesdeBD();
     }
 
-    // Metodo que llama al metodo loadUsers de la clase UserService y actualiza la tabla
     private void cargarDatosDesdeBD() {
-        usuarios = users.loadUsers();
-        tableView.setItems(usuarios);
+        categorias = categoria.loadCategorias();
+        tableView.setItems(categorias);
     }
 
     @FXML
@@ -70,26 +66,6 @@ public class UserController {
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
-    }
-
-    // Metodo que busca usuario por su dni
-    @FXML
-    public void buscarUsuario() {
-        String dni = buscarUser.getText();
-
-        if (dni.isEmpty()) { // Si el campo esta vacio muestra mensaje de error
-            System.out.println("Ingrese un DNI para buscar");
-            return;
-        }
-        
-        // Llama al método para buscar el usuario en la base de datos
-        Usuario usuario = users.searchUser(dni);
-        if (usuario != null){ // Si encontramos un usuario
-            tableView.getItems().clear(); // Limpiamos la tabla
-            tableView.getItems().add(usuario); // Mostramos el usuario
-        } else { // Si no encontramos un usuario    
-            mostrarAlerta("Error", "Usuario no encontrado");
-        }
     }
 
     // Metodo para cargar una vista en el mainContent
@@ -111,7 +87,7 @@ public class UserController {
 
     // Metodo que carga la vista del formulario para añadir un usuario
     @FXML
-    public void añadirUsuario(){
-        setView("/resources/FormUser.fxml");
+    public void añadirCategoria(){
+        setView("/resources/FormCategoria.fxml");
     }
 }
