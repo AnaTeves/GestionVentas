@@ -1,4 +1,5 @@
 package app.Controllers;
+import app.BDD.UserService;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,25 +13,24 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.io.IOException;
-
+// Controlador que maneja el login
 public class LoginController {
-
     @FXML
-    private TextField usernameField;
-
+    private TextField dniField;
     @FXML
     private PasswordField passwordField;
+    private UserService userService = new UserService();
 
     // Método que maneja el evento del boton "ingresar"
     @FXML
     protected void handleLogin(ActionEvent event) {
-        String username = usernameField.getText().trim();
+        String dni = dniField.getText().trim();
         String password = passwordField.getText().trim();
 
-        String userRole = authenticateUser(username, password);
-
-        if (userRole != null) {
-            loadDashboard(userRole);
+        String perfilDesripcion = userService.validarUsuario(dni, password);
+        if (perfilDesripcion != null) {
+            SessionManager.setCurrentUser(perfilDesripcion); // Almacena el usuario que inicio sesion
+            loadDashboard(perfilDesripcion);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Usuario o contraseña invalidos");
@@ -53,14 +53,14 @@ public class LoginController {
     // Metodo que carga las distintas vistas segun el tipo de usuario
     private void loadDashboard(String userRole) {
         try {
-            Stage stage = (Stage) usernameField.getScene().getWindow(); // Obtengo la ventana actual
+            Stage stage = (Stage) dniField.getScene().getWindow(); // Obtengo la ventana actual
 
             Parent root;
             if(userRole.equals("Administrador")) {
                 root = FXMLLoader.load(getClass().getResource("/resources/mainViews/DashboardAdmin.fxml"));
             } else if(userRole.equals("Gerente")) { 
                 root = FXMLLoader.load(getClass().getResource("/resources/mainViews/DashboardGerente.fxml"));
-            } else {
+            } else { 
                 root = FXMLLoader.load(getClass().getResource("/resources/mainViews/DashboardEmpleado.fxml"));
             }
 
@@ -68,11 +68,11 @@ public class LoginController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            stage.setFullScreen(true);
             // Centramos la ventana al medio de la pantalla
-            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-            stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
-            stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
-
+            // Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            // stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
+            // stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,7 +80,7 @@ public class LoginController {
 
     // Metodo que maneja el evento del boton Cancelar
     public void handleCancel(ActionEvent event) {
-        Stage stage = (Stage) usernameField.getScene().getWindow();
+        Stage stage = (Stage) dniField.getScene().getWindow();
         stage.close();
     }
 }

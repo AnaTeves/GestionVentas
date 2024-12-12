@@ -5,6 +5,7 @@ public class Categoria {
     private String nombre;
     private String descripcion;
     private String estado;
+    private int idCategoria;
 
     public Categoria(int id,String nombre, String descripcion, String estado){
         this.id = id;
@@ -17,16 +18,31 @@ public class Categoria {
         return nombre;
     }
 
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
     public String getDescripcion(){
         return descripcion;
+    }
+
+    public void setDescripcion(String descripcion){
+        this.descripcion = descripcion;
     }
 
     public String getEstado(){
         return estado;
     }
 
+    public void setEstado(String estado){
+        this.estado = estado;
+    }
+
     public int getId(){
         return id;
     }
 
+    public void setId(int id){
+        this.id = id;
+    }
 }

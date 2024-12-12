@@ -13,7 +13,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <!-- Vista gestion de usuarios - Agregar, ver, buscar -->
-<StackPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controllers.VentaController">
     <HBox alignment="CENTER" spacing="50.0" HBox.hgrow="ALWAYS"> 
         <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS" styleClass="vbox">
             <padding>

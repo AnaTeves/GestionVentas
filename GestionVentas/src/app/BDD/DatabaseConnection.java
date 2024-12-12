@@ -2,6 +2,7 @@ package app.BDD;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
@@ -20,5 +21,15 @@ public class DatabaseConnection {
         }
 
         return connection;
+    }
+
+    public static void close(Connection conn, PreparedStatement stmt1, PreparedStatement stmt2) {
+        try {
+            if (stmt1 != null) stmt1.close();
+            if (stmt2 != null) stmt2.close();
+            if (conn != null) conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

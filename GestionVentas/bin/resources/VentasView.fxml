@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+
+<StackPane fx:id="mainContent" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controllers.VentaView">
+    <HBox alignment="CENTER" spacing="50.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #f5deb3, #c7916b);" HBox.hgrow="ALWAYS"> 
+        <VBox fx:id="vbox" alignment="CENTER" spacing="20.0" styleClass="vbox" HBox.hgrow="ALWAYS">
+            <Label text="Historial de ventas" textAlignment="CENTER" alignment="CENTER" textFill="WHITE">
+                <padding>
+                    <Insets bottom="10.0" />
+                </padding>
+                <font>
+                    <Font name="System Bold Italic" size="15.0" />
+                </font>
+            </Label>
+            <!-- Tabla que visualiza los usuarios -->
+            <TableView fx:id="tableView" minWidth="200.0" maxWidth="400">
+                <columns>
+                    <TableColumn fx:id="fechaventaCol" prefWidth="90.0" text="Fecha venta" />
+                    <TableColumn fx:id="totalventaCol" prefWidth="100.0" text="Total venta" />
+                    <TableColumn fx:id="dniusuarioCol" prefWidth="100.0" text="Dni usuario" />
+                    <TableColumn fx:id="dniclienteCol" prefWidth="100" text="Dni cliente" />
+                </columns>
+            </TableView> 
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+        </VBox>
+        <VBox fx:id="vbox" alignment="CENTER" spacing="20.0" styleClass="vbox" HBox.hgrow="ALWAYS">
+            <Label text="Cliente con mas compras" textAlignment="CENTER" alignment="CENTER" textFill="WHITE">
+                <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+            </Label>
+            <Label text="ID cliente:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="idField" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-border-color: white; -fx-border-width: 1; -fx-padding: 5;" editable="false"/>
+
+            <!-- Columna 2 -->
+            <Label text="Nombre cliente:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-border-color: white; -fx-border-width: 1; -fx-padding: 5;" editable="false"/>
+
+            <!-- Columna 3 -->
+            <Label text="Cantidad de compras:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="quantityField" GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-border-color: white; -fx-border-width: 1; -fx-padding: 5;" editable="false"/>
+
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+        </VBox>
+    </HBox>
+</StackPane>

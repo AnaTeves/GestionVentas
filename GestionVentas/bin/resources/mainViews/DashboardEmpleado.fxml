@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
@@ -10,60 +9,141 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
-<!-- Vista del empleado al ingresar -->
-<StackPane alignment="CENTER" maxHeight="800" maxWidth="1000" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.XYChart?>
+<?import javafx.scene.image.Image?>        
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+
+<!-- Vista del vendedor al iniciar sesion -->
+<StackPane alignment="CENTER" maxHeight="800" maxWidth="1000" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.Controllers.EmpleadoController">
     <BorderPane fx:id="mainBorderPane" StackPane.alignment="CENTER">
-        <!-- Contenedor superior -->
-        <top>
-            <HBox spacing="80" alignment="CENTER">
-                <Label text="Empleado">
-                <padding>
-                    <Insets left="10.0" right="10.0" top="10.0" bottom="10.0"/>
-                </padding></Label>
-                <Button text="Logout" />
-            </HBox>
-        </top>
         <!-- Contenedor izquierdo -->
         <left>
-            <VBox alignment="CENTER" spacing="70">
-                <Label text="Registro venta" textAlignment="CENTER">
-                    <padding>
-                        <Insets left="10.0" right="10.0" />
-                    </padding>
-                </Label>
-                <Label text="Historial ventas" textAlignment="CENTER">
-                    <padding>
-                        <Insets left="10.0" right="10.0" />
-                    </padding></Label>
-                <Label text="Inventario" textAlignment="CENTER">
-                    <padding>
-                        <Insets left="10.0" right="10.0" />
-                    </padding></Label>
-                <Label text="Perfil" textAlignment="CENTER">
-                    <padding>
-                        <Insets left="10.0" right="10.0" />
-                    </padding>
-                </Label>
+            <!-- Contenedor vertical que contiene el menu de opciones -->
+            <VBox alignment="CENTER" spacing="50">
+                <Button style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0 10;" text="Vendedor" contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitHeight="27" fitWidth="27" preserveRatio="true">
+                            <image>
+                                <Image url="@../files/usuario.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button onAction="#handleReportes" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0 10;" text="Reportes" contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitHeight="27" fitWidth="27" preserveRatio="true">
+                            <image>
+                                <Image url="@../files/reportes.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button onAction="#handleVentas" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0 10;" text="Nueva&#10;Venta" contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitHeight="27" fitWidth="27" preserveRatio="true">
+                            <image>
+                                <Image url="@../files/ventas.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button onAction="#handleClientes" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0 10;" text="Clientes" contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitHeight="27" fitWidth="27" preserveRatio="true">
+                            <image>
+                                <Image url="@../files/clientes.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button onAction="#handleInventario" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0 10;" text="Inventario" contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitHeight="27" fitWidth="27" preserveRatio="true">
+                            <image>
+                                <Image url="@../files/inventario.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button onAction="#cerrarSesion" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-padding: 0 10;" text="Cerrar sesión" contentDisplay="TOP">
+                    <graphic>
+                        <ImageView fitHeight="27" fitWidth="27" preserveRatio="true">
+                            <image>
+                                <Image url="@../files/logout.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
             </VBox>
         </left>
         <!-- Contenedor central -->
         <center>
-            <StackPane fx:id="mainContent" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #7853b0, #366db1);">
+            <StackPane fx:id="mainContent" style="-fx-background-color: #773939;">
                 <GridPane fx:id="gridPane" alignment="CENTER"> <!-- Espacio horizontal y vertical entre celdas -->
                     <columnConstraints>
                         <ColumnConstraints percentWidth="50" />
                         <ColumnConstraints percentWidth="50" />
                     </columnConstraints>
-    
                     <rowConstraints>
                         <RowConstraints percentHeight="50" />
                         <RowConstraints percentHeight="50" />
                     </rowConstraints>
+                    <VBox spacing="10" alignment="CENTER"  GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Total de ventas realizadas"/>
+                        <HBox spacing="10" alignment="CENTER">
+                            <VBox>
+                                <Label text="Fecha Inicio:" />
+                                <DatePicker fx:id="datePickerInicio" />
+                            </VBox>
+                            <VBox>
+                                <Label text="Fecha Fin:" />
+                                <DatePicker fx:id="datePickerFin" />
+                            </VBox>
+                        </HBox>
+                        <Button text="Calcular reporte" onAction="#calcularReporteVentas" />
+                    </VBox>
 
-                    <Label text="Label 1" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                    <Label text="Label 2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <Label text="Label 3" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <Label text="Label 4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <VBox fx:id="vbox" alignment="CENTER" spacing="20.0" styleClass="vbox" HBox.hgrow="ALWAYS" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Historial de ventas" textAlignment="CENTER" alignment="CENTER" textFill="WHITE">
+                            <padding>
+                                <Insets bottom="10.0" />
+                            </padding>
+                            <font>
+                                <Font name="System Bold Italic" size="15.0" />
+                            </font>
+                        </Label>
+                        <!-- Tabla que visualiza los usuarios -->
+                        <TableView fx:id="tableView" minWidth="200.0" maxWidth="400">
+                            <columns>
+                                <TableColumn fx:id="fechaventaCol" prefWidth="90.0" text="Fecha venta" />
+                                <TableColumn fx:id="totalventaCol" prefWidth="100.0" text="Total venta" />
+                                <TableColumn fx:id="dniusuarioCol" prefWidth="100.0" text="Dni usuario" />
+                                <TableColumn fx:id="dniclienteCol" prefWidth="100" text="Dni cliente" />
+                            </columns>
+                        </TableView> 
+                        <padding>
+                            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                        </padding>
+                    </VBox>
+
                 </GridPane>
             </StackPane>
         </center>

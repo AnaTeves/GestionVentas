@@ -1,5 +1,5 @@
 .root{
-    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #7853b0, #366db1); /* Fondo degradado */
+    -fx-background-color: #773939;
 }
 
 /* Estilo para el contenedor de imagen y etiquetas */
@@ -14,7 +14,41 @@
     -fx-preserve-ratio: true; /* Mantener la proporción del logo */
 }
 
-/* Estilo para las etiquetas y campos de texto */
-.vbox {
-    -fx-spacing: 15; /* Espacio entre las etiquetas y los campos de texto */
+/* Títulos */
+@font-face {
+    font-family: "Roboto Slab";
+    src: url("/fonts/roboto-slab-regular.ttf");
+}
+
+.titulo {
+    -fx-font-family: "Roboto Slab";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;  /* Blanco para el color del texto */
+}
+
+/* Texto común */
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/roboto-regular.ttf");
+}
+
+.texto-comun {
+    -fx-font-family: "Roboto", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;  
+}
+
+.labels {
+    -fx-font-family: "Roboto";
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+}
+
+.vbox-externo {
+    -fx-background-color: #ffffff1a;
+}
+
+.vbox-interno {
+    -fx-background-color: #5c2e2e43;
 }
