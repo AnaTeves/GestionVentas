@@ -6,11 +6,9 @@ import java.time.LocalDate;
 import java.util.Map;
 
 import app.BDD.CategoriaService;
-import app.BDD.UserService;
 import app.BDD.VentaService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -22,8 +20,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import java.util.List;
 
 // Controlador del administrador que hereda del controlador de los metodos comunes
 public class AdminController extends ComunesController {

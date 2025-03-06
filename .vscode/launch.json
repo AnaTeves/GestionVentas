@@ -6,17 +6,25 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
             "name": "MainApp",
             "request": "launch",
             "mainClass": "app.MainApp",
-            "projectName": "GestionVentas_9d36aae2",
-            "vmArgs": "--module-path \"C:/Program Files/Java/javafx-sdk-22.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
-        }
+            "projectName": "Proyect_TallerII_G26_77f434f7",
+            "vmArgs": "--module-path \"C:/Java/javafx-sdk-22.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        // {
+        //     "type": "java",
+        //     "name": "Current File",
+        //     "request": "launch",
+        //     "mainClass": "${file}"
+        // },
+        // {
+        //     "type": "java",
+        //     "name": "MainApp",
+        //     "request": "launch",
+        //     "mainClass": "app.MainApp",
+        //     "projectName": "GestionVentas",
+        //     // "vmArgs": "--module-path \"C:/Java/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+        // }
     ]
 }

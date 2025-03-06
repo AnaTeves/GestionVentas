@@ -9,15 +9,13 @@ import java.util.List;
 import java.util.Optional;
 
 import app.Models.Cliente;
-import app.Models.Producto;
-import app.Models.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 // Clase que maneja la interaccion con la base de datos de la tabla cliente
 public class ClienteService {
 
-    private Connection connection;
+    public Connection connection;
 
     public ClienteService(){
         this.connection = DatabaseConnection.getConnection();

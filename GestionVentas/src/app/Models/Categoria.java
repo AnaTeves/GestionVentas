@@ -5,7 +5,7 @@ public class Categoria {
     private String nombre;
     private String descripcion;
     private String estado;
-    private int idCategoria;
+    // private int idCategoria;
 
     public Categoria(int id,String nombre, String descripcion, String estado){
         this.id = id;

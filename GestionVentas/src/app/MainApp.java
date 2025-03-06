@@ -1,6 +1,5 @@
 package app;
-
-import app.BDD.DatabaseConnection;
+import app.BDD.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -16,8 +15,7 @@ public class MainApp extends Application {
         // Cargamos el archivo FXML
         Parent root = FXMLLoader.load(getClass().getResource("/resources/LoginView.fxml"));
 
-        DatabaseConnection db = new DatabaseConnection();
-        db.getConnection();
+        DatabaseConnection.getConnection();
 
         // Creamos la escena
         Scene scene = new Scene(root);
@@ -27,10 +25,11 @@ public class MainApp extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED); // Quita la barra superior del titulo
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setFullScreen(true);   
         // Centramos la ventana al medio de la pantalla
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        primaryStage.setX((screenBounds.getWidth() - primaryStage.getWidth()) / 2);
-        primaryStage.setY((screenBounds.getHeight() - primaryStage.getHeight()) / 2);
+        // Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        // primaryStage.setX((screenBounds.getWidth() - primaryStage.getWidth()) / 2);
+        // primaryStage.setY((screenBounds.getHeight() - primaryStage.getHeight()) / 2);
     }
 
     public static void main(String[] args) {

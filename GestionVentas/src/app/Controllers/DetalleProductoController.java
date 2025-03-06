@@ -8,10 +8,6 @@ import app.Models.Producto;
 import app.BDD.InventService;
 
 import java.io.IOException;
-
-import app.BDD.InventService;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;

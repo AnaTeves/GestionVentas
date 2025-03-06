@@ -1,7 +1,7 @@
 package app.Models;
-import java.time.LocalDate;
+
 import java.util.List;
-import java.sql.Time;
+
 import java.sql.Timestamp;
 
 public class Venta {

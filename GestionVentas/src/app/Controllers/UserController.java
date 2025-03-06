@@ -21,7 +21,6 @@ import app.Models.Usuario;
 import java.io.IOException;
 
 public class UserController {
-
     @FXML
     private TableView<Usuario> tableView;
     @FXML
@@ -41,7 +40,6 @@ public class UserController {
     private StackPane mainContent;
     @FXML
     private TextField buscarUser;
-    // Creamos una instancia de user service
     private UserService users = new UserService();
 
     @FXML

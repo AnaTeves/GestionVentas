@@ -1,6 +1,5 @@
 package app.BDD;
 import app.Models.Venta;
-import app.Models.Cliente;
 import app.Models.DetalleVenta;
 import app.Models.Producto;
 
@@ -21,14 +20,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.sql.*;
-import java.time.LocalDate;
-import java.util.*;
 import java.util.Map;
 
 public class VentaService {
 
-    private Connection connection;
+    public Connection connection;
 
     public VentaService() {
     }

@@ -1,6 +1,5 @@
 package app.Controllers;
 import java.io.IOException;
-
 import app.BDD.UserService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +10,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 
+/** Controlador que maneja el formulario para registrar un nuevo usuario */
 public class FormUserController {
     @FXML
     private TextField nomYapeField;
@@ -19,15 +19,15 @@ public class FormUserController {
     @FXML
     private TextField emailField;
     @FXML
-    private TextField contraseñaField;
+    private TextField passwordField;
     @FXML
     private MenuButton perfilMenuButton;
     @FXML
     private StackPane mainContentForm;
 
-    // Creamos una instancia de user service
+    // Creamos una instancia la cual nos permite interactuar con la base de datos del usuario
     private UserService users = new UserService();
-    // Creamos una instancia de user controller
+    // Creamos una instancia del controlador del usuario
     private UserController userController = new UserController();
 
     @FXML
@@ -35,11 +35,12 @@ public class FormUserController {
         perfilSelection();
     }
     
-    // Metodo que agrega un nuevo usuario
+    /** Metodo que agrega un nuevo usuario */
     @FXML
     public void agregarUsuario() {
+        /* Extraigo los datos del formulario */
         String nomYape = nomYapeField.getText();
-        String contraseña = contraseñaField.getText();
+        String contraseña = passwordField.getText();
         String dni = dniField.getText();
         String email = emailField.getText();
         String perfilDescripcion = perfilMenuButton.getText();
@@ -51,11 +52,12 @@ public class FormUserController {
             return;
         }
 
-        // Llama al método para insertar el usuario en la base de datos
+        // Llama al método que inserta el usuario en la base de datos
         users.addUser(nomYape, dni, email, idPerfil, contraseña);
         userController.mostrarAlerta("Éxito", "Usuario agregado correctamente.");
     }
     
+    /* Metodo para seleccionar el perfil */
     private void perfilSelection() {
         for (MenuItem item : perfilMenuButton.getItems()) {
             item.setOnAction(event -> {
@@ -70,7 +72,7 @@ public class FormUserController {
             try {
             Node usuarioview = FXMLLoader.load(getClass().getResource("/resources/UserView.fxml"));
             mainContentForm.getChildren().clear(); // Limpiar contenido actual
-            mainContentForm.getChildren().add(usuarioview); // Cargar vista de categorías
+            mainContentForm.getChildren().add(usuarioview); // Cargar vista de usuarios
         } catch (IOException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -80,6 +82,4 @@ public class FormUserController {
             alert.showAndWait();
         }
     }
-
-    
 }

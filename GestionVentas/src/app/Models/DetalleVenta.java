@@ -1,6 +1,4 @@
 package app.Models;
-import javafx.beans.property.FloatProperty;
-import javafx.beans.property.SimpleFloatProperty;
 
 public class DetalleVenta {
     private String nombre;
@@ -9,7 +7,7 @@ public class DetalleVenta {
     private int id_venta;
     private int id_producto;
     private float subtotal;  // precioUnitario * cantidad
-    private float total;
+    // private float total;
 
     // private final FloatProperty precio_unitario = new SimpleFloatProperty();
 

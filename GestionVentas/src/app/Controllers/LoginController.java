@@ -6,10 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.io.IOException;
@@ -39,7 +37,7 @@ public class LoginController {
     }
 
     // Método para validar al usuario
-    private String authenticateUser(String username, String password) {
+    public String authenticateUser(String username, String password) {
         if (username.equals("administrador") && password.equals("admin")) {
             return "Administrador";
         } else if (username.equals("gerente") && password.equals("gerente")) {

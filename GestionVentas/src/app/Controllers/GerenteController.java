@@ -1,27 +1,21 @@
 package app.Controllers;
 import java.util.List;
-import java.util.Map;
 import app.BDD.VentaService;
 import app.BDD.CategoriaService;
 import app.BDD.DatabaseConnection;
-import app.BDD.UserService;
-import app.Models.ReporteCategoria;
+// import app.BDD.UserService;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
-import app.BDD.VentaService;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.Node;
@@ -89,7 +83,7 @@ public class GerenteController extends ComunesController {
 
     @FXML
     private ComboBox<String> vendedorComboBox;
-    private UserService userService = new UserService();
+    // private UserService userService = new UserService();
 
     @FXML
     public void initialize(){

@@ -2,7 +2,6 @@ package app.Controllers;
 import app.BDD.ClienteService;
 import app.BDD.InventService;
 import app.BDD.VentaService;
-import app.Controllers.ClienteController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -30,12 +29,9 @@ import java.time.LocalDateTime;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
@@ -206,7 +202,7 @@ public class VentaController {
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         colStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
 
-        tableView.getColumns().addAll(colId, colNombre, colPrecio, colStock);
+        tableView.getColumns().addAll(List.of(colId, colNombre, colPrecio, colStock));
         tableView.setItems(FXCollections.observableArrayList(productos));
 
         // Configurar contenido del dialog
@@ -232,10 +228,10 @@ public class VentaController {
     }
 
 
-    private void cargarDatosDesdeBD() {
-        detallesVenta = ventaService.loadVentas();
-        tablaDetalleVenta.setItems(detallesVenta);
-    }
+    // private void cargarDatosDesdeBD() {
+    //     detallesVenta = ventaService.loadVentas();
+    //     tablaDetalleVenta.setItems(detallesVenta);
+    // }
 
     // Metodo que se ejecuta al presionar el boton "Agregar"
     @FXML
